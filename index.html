@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portuguese for Mozambican Mothers | Josh Kindarara</title>
+    <meta name="description" content="An offline-first Flutter app that teaches Portuguese to non-literate mothers in rural Mozambique, plus the React/Express content management system that keeps it up to date.">
+    <meta property="og:title" content="Portuguese for Mozambican Mothers – A Language Empowerment App">
+    <meta property="og:description" content="Senior design project and follow-on work at Santa Clara University with DIFF EDUCATION and the Frugal Innovation Hub.">
+    <meta property="og:image" content="assets/img/app-frutas-v2.png">
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <a class="skip" href="#main">Skip to content</a>
+
+    <header class="site-header">
+        <div class="wrap header-row">
+            <a class="brand" href="https://joshsj89.github.io">← Josh Kindarara</a>
+            <nav aria-label="Sections">
+                <a href="#problem">Problem</a>
+                <a href="#mobile">Mobile app</a>
+                <a href="#cms">Web app</a>
+                <a href="#architecture">Architecture</a>
+                <a href="#timeline">Timeline</a>
+                <a href="#paper">Paper</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main">
+        <!-- ============ HERO ============ -->
+        <section class="hero">
+            <div class="wrap hero-grid">
+                <div>
+                    <p class="eyebrow">Santa Clara University · Senior Design &amp; Computing for Social Impact · 2024–2026</p>
+                    <h1>Portuguese for Mozambican Mothers</h1>
+                    <p class="lede">
+                        A language-empowerment app that teaches Portuguese to mothers in Mecúfi, Mozambique,
+                        who can't read or write in any language. It works through pictures and sound,
+                        runs offline, and comes with a web app so moderators can update the lessons themselves.
+                    </p>
+                    <div class="cta">
+                        <a class="btn primary" href="https://scholarcommons.scu.edu/cseng_senior/330">Read the paper</a>
+                        <a class="btn" href="https://github.com/joshsj89/mozambique_app">Mobile app code</a>
+                        <a class="btn" href="https://github.com/joshsj89/mozambique-app-cms">Web app code</a>
+                    </div>
+                    <ul class="facts" aria-label="Project facts">
+                        <li><strong>Partners</strong> DIFF EDUCATION · SCU Frugal Innovation Hub</li>
+                        <li><strong>Mobile</strong> Flutter · Hive · Firebase</li>
+                        <li><strong>Web</strong> React · TypeScript · Express · Firebase Admin</li>
+                    </ul>
+                </div>
+                <figure class="hero-shot">
+                    <img src="assets/img/app-frutas-v2.png" alt="The app on an Android tablet showing the Frutas (fruits) category: picture cards for Banana, Limão and Abacate, each with a speaker button." width="1480" height="970">
+                </figure>
+            </div>
+        </section>
+
+        <!-- ============ PROBLEM ============ -->
+        <section id="problem" class="wrap section">
+            <h2>The problem</h2>
+            <div class="two-col">
+                <div>
+                    <p>
+                        In Mecúfi, Mozambique, the mothers of children in the <strong>DIFF EDUCATION</strong> program
+                        want to learn Portuguese, the country's national language. Most of them speak only
+                        Makhuwa, have had little or no formal schooling, and have rarely used a phone or tablet.
+                    </p>
+                    <p>
+                        Nearly every language-learning tool assumes you can already read. These users can't
+                        read in any language, so text-based apps are useless to them. Internet access in the area is also unreliable.
+                    </p>
+                </div>
+                <ul class="principles">
+                    <li><span class="icon" aria-hidden="true">👁</span><div><strong>Visual and audio first</strong>Every word is a picture plus a recording. No reading required.</div></li>
+                    <li><span class="icon" aria-hidden="true">📶</span><div><strong>Offline-first</strong>Content syncs once, then every learning feature works with no connection.</div></li>
+                    <li><span class="icon" aria-hidden="true">👥</span><div><strong>Built for group lessons</strong>A moderator leads the session on a shared tablet. Learners don't need logins or their own devices.</div></li>
+                    <li><span class="icon" aria-hidden="true">✓</span><div><strong>Immediate feedback</strong>Exercises respond right away to keep learners engaged.</div></li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ============ MOBILE APP ============ -->
+        <section id="mobile" class="band">
+            <div class="wrap section">
+                <p class="eyebrow">Part 1</p>
+                <h2>The mobile app</h2>
+                <p class="section-lede">
+                    A Flutter tablet app with two modes, <em>Learn</em> and <em>Prática</em> (Practice),
+                    that covers everyday vocabulary and conversations about parenting and caregiving.
+                </p>
+
+                <div class="feature-grid">
+                    <article class="card">
+                        <h3>Vocabulary cards</h3>
+                        <p>Categories such as colors, numbers, fruits, the body and household items. Tap a card to hear the word spoken in Portuguese.</p>
+                    </article>
+                    <article class="card">
+                        <h3>Learn conversations</h3>
+                        <p>Greetings and requests shown as a question with several responses, each recorded and paired with an emotion cue.</p>
+                    </article>
+                    <article class="card">
+                        <h3>Practice quizzes</h3>
+                        <p>A question is read aloud, the learner picks from three picture answers, and the app gives instant right-or-wrong feedback.</p>
+                    </article>
+                    <article class="card">
+                        <h3>Practice conversations</h3>
+                        <p>Chat-style practice of personal interactions, with audio for every message.</p>
+                    </article>
+                </div>
+
+                <h3 class="sub">How it works offline</h3>
+                <p>
+                    On first launch the app downloads all content from Cloud Firestore and Firebase Storage
+                    into a local <strong>Hive</strong> database, showing a progress dialog for each of its five
+                    sync steps. After that, everything runs from the tablet's storage. The app only needs a
+                    connection to pull new content, and shows a dedicated screen if there's none.
+                    It follows MVVM layers (<code>model → repositories → services → view_model → view</code>),
+                    with typed Hive adapters generated by <code>build_runner</code>.
+                </p>
+
+                <h3 class="sub">Iterating with feedback from the field</h3>
+                <div class="compare">
+                    <figure>
+                        <img src="assets/img/app-frutas-v1.png" alt="Earlier build: a plain red 'DIFF EDUCATION' text button in the header and a large page title that takes up much of the screen." loading="lazy" width="1020" height="676">
+                        <figcaption><strong>Before.</strong> A text button labeled "DIFF EDUCATION" and a fixed page title that took up too much space on some tablets.</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="assets/img/app-frutas-v2.png" alt="Updated build: the DIFF EDUCATION logo in the header and a title that scrolls away to leave room for the cards." loading="lazy" width="1480" height="970">
+                        <figcaption><strong>After.</strong> We changed it after a DIFF EDUCATION partner tested the app on their own Android tablet. The header now uses the real logo, and the title scrolls away (v1.0.1).</figcaption>
+                    </figure>
+                </div>
+
+                <figure class="wide">
+                    <img src="assets/img/app-info-screen.png" alt="The Information screen with an English paragraph followed by a full Portuguese translation." loading="lazy" width="1383" height="858">
+                    <figcaption>To prepare for field testing, we translated the Information screen into Portuguese and removed student names (v1.2.3).</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <!-- ============ CMS ============ -->
+        <section id="cms" class="wrap section">
+            <p class="eyebrow">Part 2 · 2025–2026</p>
+            <h2>The content management web app</h2>
+            <p class="section-lede">
+                After senior design, adding a single new word meant running Node scripts, generating audio
+                by hand, and redeploying a Firebase site. In CSEN 493 (Computing Project for Social Impact),
+                Alex Lopes and I built a web portal so DIFF EDUCATION's moderators can manage the content themselves.
+            </p>
+
+            <div class="compare">
+                <figure>
+                    <img src="assets/img/cms-wireframe.png" alt="Whiteboard wireframe: a home page of category cards with a plus card, linking to a category page of word cards and to 'new category' and 'new word' forms with title and image fields." loading="lazy" width="1600" height="720">
+                    <figcaption>The whiteboard wireframe from Fall 2025: home, category, new category and new word pages.</figcaption>
+                </figure>
+                <figure>
+                    <img src="assets/img/cms-home.png" alt="The Mozambique App Admin Portal home page with cards for Vocab Words, Learn Conversations, Practice Quizzes, Practice Conversations and Login." loading="lazy" width="1259" height="931">
+                    <figcaption>The finished admin portal, with one area for each kind of content in the app.</figcaption>
+                </figure>
+            </div>
+
+            <div class="feature-grid">
+                <article class="card">
+                    <h3>Full content editing</h3>
+                    <p>Moderators can add, edit, reorder and delete vocabulary categories and words, quiz questions and practice conversations, matching the mobile app's content one-to-one.</p>
+                </article>
+                <article class="card">
+                    <h3>Automatic audio</h3>
+                    <p>A moderator types a Portuguese word. The backend calls the ttsMP3 text-to-speech API, downloads the MP3 and saves it to Firebase Storage, so the API key never reaches the browser.</p>
+                </article>
+                <article class="card">
+                    <h3>Drag-and-drop ordering</h3>
+                    <p>Built with dnd-kit. Cards can only be dragged by a handle, which prevents accidental reordering.</p>
+                </article>
+                <article class="card">
+                    <h3>Guardrails for deleting</h3>
+                    <p>Delete buttons appear only on a word's edit page, and every delete asks for confirmation first.</p>
+                </article>
+            </div>
+
+            <figure class="wide">
+                <img src="assets/img/cms-reorder.png" alt="The Vocab Words page mid-drag: the Números card is being moved by its handle over the Cores, Frutas and Horta cards." loading="lazy" width="1392" height="588">
+                <figcaption>Reordering categories by dragging a card's handle.</figcaption>
+            </figure>
+        </section>
+
+        <!-- ============ ARCHITECTURE ============ -->
+        <section id="architecture" class="band">
+            <div class="wrap section">
+                <h2>Architecture</h2>
+                <p class="section-lede">Firebase is the single source of truth for both apps. The tablet app only reads, and every write goes through the authenticated web app.</p>
+
+                <figure class="diagram">
+                    <svg viewBox="0 0 880 380" role="img" aria-labelledby="arch-title arch-desc">
+                        <title id="arch-title">System architecture</title>
+                        <desc id="arch-desc">Moderators use the React web app, which signs in with Firebase Auth and uploads images straight to Firebase Storage. It calls the Express backend, which verifies the user's token, writes to Firestore, and gets audio from the ttsMP3 API to store in Firebase Storage. The Flutter tablet app syncs from Firestore and Storage into a local Hive database and then runs offline.</desc>
+                        <defs>
+                            <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                                <path d="M0,0 L10,5 L0,10 z" class="arrowhead"/>
+                            </marker>
+                        </defs>
+
+                        <!-- column labels -->
+                        <text x="110" y="28" class="col">Moderators</text>
+                        <text x="440" y="28" class="col">Cloud</text>
+                        <text x="770" y="28" class="col">Classroom</text>
+
+                        <!-- web app -->
+                        <rect x="20" y="60" width="180" height="84" rx="10" class="node"/>
+                        <text x="110" y="94" class="title">React web app</text>
+                        <text x="110" y="116" class="meta">TypeScript · Vite · dnd-kit</text>
+
+                        <!-- backend -->
+                        <rect x="20" y="236" width="180" height="84" rx="10" class="node"/>
+                        <text x="110" y="270" class="title">Express API</text>
+                        <text x="110" y="292" class="meta">firebase-admin · token check</text>
+
+                        <!-- firebase group -->
+                        <rect x="290" y="50" width="300" height="300" rx="14" class="group"/>
+                        <text x="440" y="76" class="meta">Firebase</text>
+                        <rect x="320" y="92" width="240" height="56" rx="8" class="node alt"/>
+                        <text x="440" y="125" class="title">Authentication</text>
+                        <rect x="320" y="166" width="240" height="56" rx="8" class="node alt"/>
+                        <text x="440" y="199" class="title">Cloud Firestore</text>
+                        <rect x="320" y="240" width="240" height="56" rx="8" class="node alt"/>
+                        <text x="440" y="273" class="title">Cloud Storage</text>
+                        <text x="440" y="326" class="meta">dev_content / app_content</text>
+
+                        <!-- tts -->
+                        <rect x="20" y="340" width="180" height="34" rx="8" class="node ghost"/>
+                        <text x="110" y="362" class="meta">ttsMP3 API</text>
+
+                        <!-- tablet -->
+                        <rect x="680" y="150" width="180" height="110" rx="10" class="node"/>
+                        <text x="770" y="186" class="title">Flutter tablet app</text>
+                        <text x="770" y="208" class="meta">Hive local database</text>
+                        <text x="770" y="228" class="meta">works offline</text>
+
+                        <!-- edges -->
+                        <path d="M110,144 L110,236" class="edge" marker-end="url(#arrow)"/>
+                        <text x="118" y="194" class="lbl" text-anchor="start">REST + ID token</text>
+                        <path d="M200,90 L320,118" class="edge" marker-end="url(#arrow)"/>
+                        <text x="232" y="92" class="lbl">sign in</text>
+                        <path d="M200,126 C250,160 270,240 320,262" class="edge dashed" marker-end="url(#arrow)"/>
+                        <text x="214" y="214" class="lbl" text-anchor="end">image upload</text>
+                        <path d="M200,266 L320,198" class="edge" marker-end="url(#arrow)"/>
+                        <path d="M200,290 L320,272" class="edge" marker-end="url(#arrow)"/>
+                        <path d="M110,320 L110,340" class="edge" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+                        <path d="M560,194 L680,190" class="edge" marker-end="url(#arrow)"/>
+                        <path d="M560,268 L680,226" class="edge" marker-end="url(#arrow)"/>
+                        <text x="620" y="178" class="lbl">sync</text>
+                    </svg>
+                </figure>
+
+                <h3 class="sub">Engineering decisions</h3>
+                <div class="decisions">
+                    <details open>
+                        <summary>Moving media from Firebase Hosting to Firebase Storage</summary>
+                        <p>
+                            During senior design, images and audio were committed to the repo and served from
+                            Firebase Hosting. That worked for a demo, but moderators can't upload new files that way.
+                            We moved everything to Cloud Storage, which accepts uploads from both the browser and
+                            Flutter. We hesitated at first because Storage requires the pay-as-you-go Blaze plan. A worst-case
+                            estimate of 1,000 images at 1&nbsp;MB plus 1,000 clips at 40&nbsp;KB comes to about
+                            <strong>1.04&nbsp;GB</strong>, well under the <strong>5&nbsp;GB</strong> free tier.
+                        </p>
+                    </details>
+                    <details>
+                        <summary>Remodeling Firestore with subcollections</summary>
+                        <p>
+                            Originally, every category lived in an array inside a single Firestore document.
+                            Editing or reordering one item meant rewriting the whole document, and Firestore
+                            documents have a 1&nbsp;MB limit. We moved to one document per category, with each
+                            category's words in its own subcollection. Reads now fetch only what they need, and the content can grow without limit.
+                        </p>
+                        <div class="compare">
+                            <figure>
+                                <img src="assets/img/schema-v1.png" alt="Hand-drawn diagram of the original schema: app_content containing home, vocab_words, learn_convo, practice_quiz and practice_convo, each holding arrays of objects." loading="lazy" width="1683" height="2500" class="tall">
+                                <figcaption>Original model: arrays nested inside documents.</figcaption>
+                            </figure>
+                            <figure>
+                                <img src="assets/img/firestore-v2.png" alt="Firestore console showing app_content › vocab_words › categories › colors › words › blue, with fields audioPath, categoryName, imagePath, order: 1000000, portuguese: Azul, word: Blue." loading="lazy" width="1258" height="565">
+                                <figcaption>New model: one document per word, each with an explicit <code>order</code> field.</figcaption>
+                            </figure>
+                        </div>
+                    </details>
+                    <details>
+                        <summary>Fractional ordering for drag-and-drop</summary>
+                        <p>
+                            Arrays come with an order built in. Subcollections don't, so each document has an integer
+                            <code>order</code> field. New items are spaced <strong>1,000,000</strong> apart, and a dragged
+                            item gets the midpoint between its new neighbors. This is fractional indexing, the
+                            same technique Figma uses, and it means a move updates one document instead of renumbering the whole list.
+                            With Firestore's 2<sup>63</sup>−1 integer limit, it would take more than 9 trillion items to overflow.
+                        </p>
+                    </details>
+                    <details>
+                        <summary>Authentication with usernames on Firebase Auth</summary>
+                        <p>
+                            Only moderators may change content. The front end signs in with Firebase Authentication
+                            and sends an ID token with every write, which the Express middleware verifies before
+                            touching Firestore. Firebase Auth doesn't support plain usernames, so the app quietly maps
+                            each one to an internal address (<code>bbronco</code> → <code>bbronco@mozambique-app.local</code>).
+                        </p>
+                    </details>
+                    <details>
+                        <summary>Uploading images and audio from different places</summary>
+                        <p>
+                            Images upload directly from the authenticated browser to Storage, which is fast and
+                            avoids a second hop through the server. Audio is generated and uploaded by the backend
+                            because it requires the secret ttsMP3 key. Edits rename or overwrite existing records instead
+                            of deleting and recreating them, unless a new file is involved.
+                        </p>
+                    </details>
+                    <details>
+                        <summary>Separate development and production content</summary>
+                        <p>
+                            The same Firestore project holds <code>dev_content</code> and <code>app_content</code>.
+                            Release builds select one at compile time (<code>--dart-define=FIRESTORE_COLLECTION_NAME</code>),
+                            so we can keep editing content without disrupting the tablets used in field testing.
+                        </p>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ TIMELINE ============ -->
+        <section id="timeline" class="wrap section">
+            <h2>Timeline</h2>
+            <ol class="timeline">
+                <li>
+                    <span class="when">May 2024 – Jun 2025</span>
+                    <h3>Senior design</h3>
+                    <p>A five-person team advised by Dr. Silvia Figueira worked with DIFF EDUCATION and SCU's Frugal Innovation Hub to design and build the offline-first Flutter app, its Firestore content model, and Node scripts that turn spreadsheets into content and generate audio. We wrote it up as our senior thesis, completed June 2025.</p>
+                </li>
+                <li>
+                    <span class="when">Fall 2025</span>
+                    <h3>Tablet feedback and planning the web app</h3>
+                    <p>We returned to the project in CSEN 493 to get it ready for testing in Mozambique. A DIFF EDUCATION partner tested an Android build, and we fixed the header and scrolling issues they found. While we waited on our point of contact, we planned the web app. We sketched wireframes, redrew the workflow and database schema, broke the work into four milestones (Learn → Quizzes → Design → Conversations), chose React and Express, and built the first working endpoint.</p>
+                </li>
+                <li>
+                    <span class="when">Winter – Spring 2026</span>
+                    <h3>Building the web app and preparing for field testing</h3>
+                    <p>We moved media to Cloud Storage (v1.1.0), remodeled Firestore with subcollections (v1.2.0), and added fractional ordering, Firebase Auth, browser and server uploads, and drag-and-drop. In February we demoed both apps in person to our DIFF EDUCATION point of contact, who connected us with the program's moderators. We separated development and production content (v1.2.2), translated the app's Information screen into Portuguese (v1.2.3), and got the app ready to install on tablets for in-person testing in Mozambique.</p>
+                </li>
+                <li>
+                    <span class="when">Next</span>
+                    <h3>Feedback and handoff</h3>
+                    <p>Early feedback from Mozambique was very positive. It also produced a list of requested content: the alphabet with letter sounds, everyday actions like eating meals or asking for water, and words for describing pain at a clinic. We tested generating matching illustrations with Gemini, and learned the prompts need care to be culturally accurate. The Firebase project and both repos are being handed to a future Frugal Innovation Hub team.</p>
+                </li>
+            </ol>
+        </section>
+
+        <!-- ============ MY ROLE ============ -->
+        <section id="role" class="band">
+            <div class="wrap section">
+                <h2>My role</h2>
+                <!-- TODO(Josh): confirm these bullets and add anything specific you owned during senior design. -->
+                <ul class="role-list">
+                    <li><strong>Mobile app.</strong> Wrote the largest share of commits to the Flutter app, including the Firestore-to-Hive sync, the Firebase Storage migration, the subcollection refactor, launcher icons, and dev/prod builds.</li>
+                    <li><strong>Web app.</strong> Co-designed the web app with Alex Lopes and wrote most of it: the Express API, Firebase Auth middleware, ttsMP3 audio pipeline, fractional ordering, and React pages with drag-and-drop.</li>
+                    <li><strong>Content tooling.</strong> Wrote Node scripts to convert spreadsheets to JSON, generate audio from text, and bulk-upload media to Storage.</li>
+                    <li><strong>Field readiness.</strong> Prepared and shipped Android builds for partner testing and turned their feedback into releases.</li>
+                </ul>
+                <div class="stats">
+                    <div><span class="num">305</span><span class="lbl">commits to the mobile app</span></div>
+                    <div><span class="num">66</span><span class="lbl">commits to the web app</span></div>
+                    <div><span class="num">7</span><span class="lbl">API route modules</span></div>
+                    <div><span class="num">v1.2.3</span><span class="lbl">latest tablet release</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ PAPER ============ -->
+        <section id="paper" class="wrap section">
+            <h2>The paper</h2>
+            <div class="paper">
+                <div>
+                    <p class="paper-title">Portuguese for Mozambican Mothers – A Language Empowerment App</p>
+                    <p class="muted">Computer Science and Engineering Senior Thesis 330 · Santa Clara University · 2025</p>
+                    <p>
+                        This project develops an educational application for non-literate mothers in rural
+                        Mozambique. The app teaches through pictures and sound for users with no experience
+                        reading or using technology, keeps its core learning features working offline where internet
+                        is limited, and is designed for group lessons led by a moderator, with no individual logins and
+                        immediate feedback on exercises.
+                    </p>
+                    <a class="btn primary" href="https://scholarcommons.scu.edu/cseng_senior/330">View on Scholar Commons</a>
+                </div>
+                <div class="cite">
+                    <p class="muted small">Recommended citation</p>
+                    <blockquote>
+                        Kindarara, Josh; Lopes, Alexandre; Patwardhan, Gwendolyn; Santos, Riana; and Wheeler, Sara,
+                        "Portuguese for Mozambican Mothers – A Language Empowerment App" (2025).
+                        <em>Computer Science and Engineering Senior Theses.</em> 330.
+                        <a href="https://scholarcommons.scu.edu/cseng_senior/330">https://scholarcommons.scu.edu/cseng_senior/330</a>
+                    </blockquote>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ CREDITS ============ -->
+        <section class="wrap section credits">
+            <h2>Team &amp; acknowledgements</h2>
+            <p>
+                <strong>Senior design team:</strong> Josh Kindarara, Alexandre Lopes, Gwendolyn Patwardhan, Riana Santos and Sara Wheeler (who created the mobile app's visual design).
+                <strong>Advisor:</strong> Dr. Silvia Figueira.
+                <strong>2025–26 continuation:</strong> Josh Kindarara and Alexandre Lopes.
+            </p>
+            <p>
+                Thank you to <strong>DIFF EDUCATION</strong> and its moderators and families in Mecúfi, and to Santa Clara University's
+                <strong>Frugal Innovation Hub</strong>.
+            </p>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="wrap footer-row">
+            <span>© <span id="year">2026</span> Josh Kindarara</span>
+            <span>
+                <a href="https://joshsj89.github.io">Portfolio</a> ·
+                <a href="https://github.com/joshsj89">GitHub</a>
+            </span>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
