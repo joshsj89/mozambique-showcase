@@ -17,7 +17,8 @@ index.html        single-page showcase
 styles.css        styles (light/dark via prefers-color-scheme)
 assets/
   favicon.svg
-  img/            screenshots and diagrams from the project reports
+  img/            screenshots, slide crops and diagrams
+  docs/poster.pdf senior design poster
 ```
 
 No build step. Open `index.html` locally, or push to `main` and GitHub Pages serves it.

@@ -22,6 +22,7 @@
                 <a href="#mobile">Mobile app</a>
                 <a href="#cms">Web app</a>
                 <a href="#architecture">Architecture</a>
+                <a href="#field">In the field</a>
                 <a href="#timeline">Timeline</a>
                 <a href="#paper">Paper</a>
             </nav>
@@ -38,7 +39,7 @@
                     <p class="lede">
                         A language-empowerment app that teaches Portuguese to mothers in Mecúfi, Mozambique,
                         who can't read or write in any language. It works through pictures and sound,
-                        runs offline, and comes with a web app so moderators can update the lessons themselves.
+                        runs offline on shared tablets, and comes with a web app so moderators can update the lessons themselves.
                     </p>
                     <div class="cta">
                         <a class="btn primary" href="https://scholarcommons.scu.edu/cseng_senior/330">Read the paper</a>
@@ -63,20 +64,32 @@
             <div class="two-col">
                 <div>
                     <p>
-                        In Mecúfi, Mozambique, the mothers of children in the <strong>DIFF EDUCATION</strong> program
-                        want to learn Portuguese, the country's national language. Most of them speak only
-                        Makhuwa, have had little or no formal schooling, and have rarely used a phone or tablet.
+                        DIFF EDUCATION runs a school in Mecúfi, a district of about 61,000 people in northern Mozambique.
+                        The mothers of its students mostly speak Makhuwa. They have had little or no
+                        formal schooling, can't read or write in any language, and have rarely used a phone or tablet.
                     </p>
                     <p>
-                        Nearly every language-learning tool assumes you can already read. These users can't
-                        read in any language, so text-based apps are useless to them. Internet access in the area is also unreliable.
+                        Portuguese is Mozambique's official language, a legacy of colonization, and it is
+                        spoken mainly by younger, formally educated city residents. Learning it would let these mothers sell
+                        their produce in nearby city markets, deal with clinics and offices, and support their
+                        children's schooling. The idea for the app came from the community itself.
+                    </p>
+                    <p>
+                        Nearly every language-learning app assumes you can already read, and asks you to pick
+                        a language you know to learn from. These users can do neither. Internet access is also
+                        unreliable and is often cut by storms or political unrest.
+                    </p>
+                    <p class="muted small">
+                        The plan: groups of about 15 mothers practice at the school for 30–45 minutes after 5:30&nbsp;p.m.,
+                        two or three times a week, on shared tablets with a Portuguese- and Makhuwa-speaking moderator.
                     </p>
                 </div>
                 <ul class="principles">
-                    <li><span class="icon" aria-hidden="true">👁</span><div><strong>Visual and audio first</strong>Every word is a picture plus a recording. No reading required.</div></li>
+                    <li><span class="icon" aria-hidden="true">👁</span><div><strong>Visual and audio first</strong>Every word is a picture plus a recording. Text is there only to guide the moderator.</div></li>
                     <li><span class="icon" aria-hidden="true">📶</span><div><strong>Offline-first</strong>Content syncs once, then every learning feature works with no connection.</div></li>
-                    <li><span class="icon" aria-hidden="true">👥</span><div><strong>Built for group lessons</strong>A moderator leads the session on a shared tablet. Learners don't need logins or their own devices.</div></li>
-                    <li><span class="icon" aria-hidden="true">✓</span><div><strong>Immediate feedback</strong>Exercises respond right away to keep learners engaged.</div></li>
+                    <li><span class="icon" aria-hidden="true">👥</span><div><strong>Built for group lessons</strong>A moderator leads the session on shared tablets. There are no logins and no progress tracking.</div></li>
+                    <li><span class="icon" aria-hidden="true">✓</span><div><strong>Immediate feedback</strong>Quizzes say right away whether an answer is right or wrong, with no Submit button.</div></li>
+                    <li><span class="icon" aria-hidden="true">🔒</span><div><strong>No personal data</strong>The app collects nothing about its users, who may not know how their data would be used.</div></li>
                 </ul>
             </div>
         </section>
@@ -84,40 +97,112 @@
         <!-- ============ MOBILE APP ============ -->
         <section id="mobile" class="band">
             <div class="wrap section">
-                <p class="eyebrow">Part 1</p>
+                <p class="eyebrow">Part 1 · Senior design, 2024–25</p>
                 <h2>The mobile app</h2>
                 <p class="section-lede">
-                    A Flutter tablet app with two modes, <em>Learn</em> and <em>Prática</em> (Practice),
-                    that covers everyday vocabulary and conversations about parenting and caregiving.
+                    A landscape Flutter app for low-cost Android tablets, with two modes: <em>Aprender</em> (Learn)
+                    and <em>Prática</em> (Practice). It targets beginner level (CEFR A1): greetings, introductions, and everyday
+                    vocabulary.
                 </p>
+
+                <div class="stats">
+                    <div><span class="num">14</span><span class="lbl">Learn sets</span></div>
+                    <div><span class="num">6</span><span class="lbl">Practice modules</span></div>
+                    <div><span class="num">4</span><span class="lbl">visual styles for vocabulary</span></div>
+                    <div><span class="num">0</span><span class="lbl">logins or personal data</span></div>
+                </div>
 
                 <div class="feature-grid">
                     <article class="card">
-                        <h3>Vocabulary cards</h3>
-                        <p>Categories such as colors, numbers, fruits, the body and household items. Tap a card to hear the word spoken in Portuguese.</p>
+                        <h3>Learn: vocabulary</h3>
+                        <p>Twelve picture sets, including numbers, colors, fruits, vegetables, animals, the face and body, household and kitchen items, professions, and everyday actions. Tap any card to hear the Portuguese word.</p>
                     </article>
                     <article class="card">
-                        <h3>Learn conversations</h3>
-                        <p>Greetings and requests shown as a question with several responses, each recorded and paired with an emotion cue.</p>
+                        <h3>Learn: dialogue pairs</h3>
+                        <p>Greetings and Requests: the same question answered two ways, once informally and once formally, with audio for every line.</p>
                     </article>
                     <article class="card">
-                        <h3>Practice quizzes</h3>
-                        <p>A question is read aloud, the learner picks from three picture answers, and the app gives instant right-or-wrong feedback.</p>
+                        <h3>Practice: quizzes</h3>
+                        <p>Colors, Face and Body. The learner sees new pictures (not the ones from Learn), hears the question, and picks one of three spoken answers. Wrong options are deliberately obvious.</p>
                     </article>
                     <article class="card">
-                        <h3>Practice conversations</h3>
-                        <p>Chat-style practice of personal interactions, with audio for every message.</p>
+                        <h3>Practice: conversations</h3>
+                        <p>Greetings, shopping at a store, and personal introductions. Each line appears only after the previous one has been played, and there are back, next and start-over buttons.</p>
                     </article>
                 </div>
 
+                <h3 class="sub">A tour of the app</h3>
+                <p class="muted small">Annotated screens from our May 2025 Senior Design Conference presentation.</p>
+
+                <figure class="wide">
+                    <img src="assets/img/sd-learn-home.jpg" alt="Learn home page titled Olá! with a grid of 14 emoji-illustrated categories, annotated: every category has an image and a title, and categories are provided by DIFF EDUCATION." loading="lazy" width="1518" height="753">
+                    <figcaption><strong>Learn home.</strong> Fourteen sets, each with an image and a title. DIFF EDUCATION chose the categories, starting from seven and growing to fourteen.</figcaption>
+                </figure>
+
+                <div class="gallery">
+                    <figure>
+                        <img src="assets/img/sd-style-photos.jpg" alt="Fruits, Vegetables and Animals sets shown as grids of photo cards." loading="lazy" width="1518" height="753">
+                        <figcaption><strong>Photos</strong> for fruits, vegetables, animals and household and kitchen items.</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="assets/img/sd-style-emoji.jpg" alt="Face and Body sets shown with brown-skinned, gender-neutral emoji." loading="lazy" width="1518" height="753">
+                        <figcaption><strong>Emoji</strong> for the face and body, with skin tones that match the learners and gender-neutral figures.</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="assets/img/sd-style-graphics.jpg" alt="Common Actions, Everyday Activities and Professions sets shown with flat illustrations of people." loading="lazy" width="1518" height="753">
+                        <figcaption><strong>Illustrations</strong> for actions and professions, recolored to reflect the community.</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="assets/img/sd-style-blocks.jpg" alt="Numbers set showing numerals 0 to 101 and Colors set showing color swatches." loading="lazy" width="1518" height="753">
+                        <figcaption><strong>Blocks</strong> for numbers (0 to 101, chosen to teach the pattern) and color swatches.</figcaption>
+                    </figure>
+                </div>
+
+                <div class="gallery">
+                    <figure>
+                        <img src="assets/img/sd-dialogue-pairs.jpg" alt="Pedidos and Saudações dialogue sets, annotated: Persona 1 says the same phrases, Persona 2 gives a friendly/familiar response and a neutral/formal response." loading="lazy" width="1518" height="753">
+                        <figcaption><strong>Dialogue pairs.</strong> The same phrase answered two ways, friendly/familiar and neutral/formal.</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="assets/img/sd-practice-home.jpg" alt="Dark-themed Prática page with six category cards: Cores, Rosto, Corpo, Saudações, Pedidos and Interações Pessoais." loading="lazy" width="1518" height="753">
+                        <figcaption><strong>Practice home.</strong> A dark theme so moderators can spot Practice mode from across the room.</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="assets/img/sd-quiz-images.jpg" alt="Colors quiz: 'Que cor são essas?' over strawberries, a rose, tomatoes and a ladybug, with answer buttons Vermelho (checked green), Castanho and Laranja (marked red)." loading="lazy" width="1518" height="753">
+                        <figcaption><strong>Picture quiz.</strong> Every question and answer can be played aloud, and feedback is immediate.</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="assets/img/sd-quiz-emoji.jpg" alt="Face and Body quizzes in which the same emoji repeats and an arrow points to a different feature for each question." loading="lazy" width="1518" height="753">
+                        <figcaption><strong>Emoji quiz.</strong> The same figure each time, with an arrow pointing to the body part being asked about.</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="assets/img/sd-conversations.jpg" alt="Saudações and Pedidos practice conversations in chat bubbles, each beside an illustration that sets the scene." loading="lazy" width="1518" height="753">
+                        <figcaption><strong>Conversations.</strong> Chat-style dialogues, each with an illustration that sets the scene.</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="assets/img/sd-no-internet.jpg" alt="Two Portuguese no-internet screens: 'Vamos Começar' for first launch and 'Atualizações Disponíveis' for a failed update." loading="lazy" width="1518" height="753">
+                        <figcaption><strong>No-internet screens</strong> in Portuguese: one for first launch, one for a failed update.</figcaption>
+                    </figure>
+                </div>
+
+                <h3 class="sub">Design choices for first-time tablet users</h3>
+                <ul class="checklist">
+                    <li><strong>Images matched to the content.</strong> Real photos for objects, emoji for the face and body, illustrations for people and actions, and blocks for numbers and colors. For illustrations we followed our advisor's advice: drawings that don't look like the women are better than photos of real people who don't.</li>
+                    <li><strong>Representation.</strong> We adjusted illustration skin tones and colors to reflect the community. DIFF EDUCATION's own doctor reviewed every set, which led us to simplify the heart and keep medically useful words like "abdomen".</li>
+                    <li><strong>Learn looks different from Practice.</strong> Learn uses a light theme and Practice a dark one, so a moderator can tell from across the room which mode each tablet is in.</li>
+                    <li><strong>Large targets.</strong> Three cards per row in landscape, bigger buttons, and a larger tap area around each audio icon after early testers kept tapping just beside it.</li>
+                    <li><strong>For moderators.</strong> A search bar on every page and an Info page with the "Update/Sync" button.</li>
+                </ul>
+
                 <h3 class="sub">How it works offline</h3>
                 <p>
-                    On first launch the app downloads all content from Cloud Firestore and Firebase Storage
-                    into a local <strong>Hive</strong> database, showing a progress dialog for each of its five
-                    sync steps. After that, everything runs from the tablet's storage. The app only needs a
-                    connection to pull new content, and shows a dedicated screen if there's none.
-                    It follows MVVM layers (<code>model → repositories → services → view_model → view</code>),
-                    with typed Hive adapters generated by <code>build_runner</code>.
+                    On first launch the app downloads everything from Cloud Firestore and Firebase Storage
+                    into a local <strong>Hive</strong> database, with a progress dialog showing each of its five
+                    sync steps. After that, everything runs from the tablet's storage. A connection is only needed when a
+                    moderator taps <em>Update/Sync</em>, and separate screens explain when there's no internet on first
+                    launch or during an update. We picked Hive over SQLite and bundled JSON because it's written in
+                    Dart, reads faster, and is NoSQL like Firestore. The app follows MVVM
+                    (<code>model → repositories → services → view_model → view</code>).
                 </p>
 
                 <h3 class="sub">Iterating with feedback from the field</h3>
@@ -128,7 +213,7 @@
                     </figure>
                     <figure>
                         <img src="assets/img/app-frutas-v2.png" alt="Updated build: the DIFF EDUCATION logo in the header and a title that scrolls away to leave room for the cards." loading="lazy" width="1480" height="970">
-                        <figcaption><strong>After.</strong> We changed it after a DIFF EDUCATION partner tested the app on their own Android tablet. The header now uses the real logo, and the title scrolls away (v1.0.1).</figcaption>
+                        <figcaption><strong>After (v1.0.1).</strong> We changed it after the Frugal Innovation Hub tested a build on its own Android tablet. The header now uses the real logo, and the title scrolls away.</figcaption>
                     </figure>
                 </div>
 
@@ -141,29 +226,30 @@
 
         <!-- ============ CMS ============ -->
         <section id="cms" class="wrap section">
-            <p class="eyebrow">Part 2 · 2025–2026</p>
+            <p class="eyebrow">Part 2 · CSEN 493, 2025–26</p>
             <h2>The content management web app</h2>
             <p class="section-lede">
-                After senior design, adding a single new word meant running Node scripts, generating audio
-                by hand, and redeploying a Firebase site. In CSEN 493 (Computing Project for Social Impact),
-                Alex Lopes and I built a web portal so DIFF EDUCATION's moderators can manage the content themselves.
+                After senior design, adding a single word meant editing a spreadsheet, running Node scripts,
+                generating audio by hand, and redeploying a Firebase site. Only a developer could do that. In CSEN 493
+                (Computing Project for Social Impact), Alex Lopes and I built a web portal so DIFF EDUCATION
+                can manage content without us.
             </p>
 
             <div class="compare">
                 <figure>
                     <img src="assets/img/cms-wireframe.png" alt="Whiteboard wireframe: a home page of category cards with a plus card, linking to a category page of word cards and to 'new category' and 'new word' forms with title and image fields." loading="lazy" width="1600" height="720">
-                    <figcaption>The whiteboard wireframe from Fall 2025: home, category, new category and new word pages.</figcaption>
+                    <figcaption>The whiteboard wireframe from October 2025: home, category, new category and new word pages.</figcaption>
                 </figure>
                 <figure>
                     <img src="assets/img/cms-home.png" alt="The Mozambique App Admin Portal home page with cards for Vocab Words, Learn Conversations, Practice Quizzes, Practice Conversations and Login." loading="lazy" width="1259" height="931">
-                    <figcaption>The finished admin portal, with one area for each kind of content in the app.</figcaption>
+                    <figcaption>The admin portal, with one area for each kind of content in the app.</figcaption>
                 </figure>
             </div>
 
             <div class="feature-grid">
                 <article class="card">
-                    <h3>Full content editing</h3>
-                    <p>Moderators can add, edit, reorder and delete vocabulary categories and words, quiz questions and practice conversations, matching the mobile app's content one-to-one.</p>
+                    <h3>Content editing</h3>
+                    <p>Moderators can add, edit, reorder and delete vocabulary categories and words. Quiz questions and practice conversations use the same structure.</p>
                 </article>
                 <article class="card">
                     <h3>Automatic audio</h3>
@@ -181,7 +267,7 @@
 
             <figure class="wide">
                 <img src="assets/img/cms-reorder.png" alt="The Vocab Words page mid-drag: the Números card is being moved by its handle over the Cores, Frutas and Horta cards." loading="lazy" width="1392" height="588">
-                <figcaption>Reordering categories by dragging a card's handle.</figcaption>
+                <figcaption>Reordering categories by dragging a card's handle. After a moderator taps Update/Sync on a tablet, the new order appears within about a minute.</figcaption>
             </figure>
         </section>
 
@@ -189,8 +275,16 @@
         <section id="architecture" class="band">
             <div class="wrap section">
                 <h2>Architecture</h2>
-                <p class="section-lede">Firebase is the single source of truth for both apps. The tablet app only reads, and every write goes through the authenticated web app.</p>
+                <p class="section-lede">Firebase is the single source of truth for both apps. The biggest change between the two years was who could update content.</p>
 
+                <h3 class="sub">2025: only developers could update content</h3>
+                <figure class="wide">
+                    <img src="assets/img/sd-architecture-v1.jpg" alt="Senior design architecture: the Flutter front end, a Dart back end and a Hive database inside the app sync with Firebase Hosting (audio and images) and Firestore (content mappings). A developer updates assets through JavaScript scripts that generate audio and update Firestore from JSON." loading="lazy" width="1518" height="753">
+                    <figcaption>Senior design architecture. A developer ran scripts to generate audio and push JSON to Firestore, and media files were served from Firebase Hosting.</figcaption>
+                </figure>
+
+                <h3 class="sub">2026: moderators update it through the web app</h3>
+                <p class="muted">The tablet app only reads. Every write goes through the authenticated web app.</p>
                 <figure class="diagram">
                     <svg viewBox="0 0 880 380" role="img" aria-labelledby="arch-title arch-desc">
                         <title id="arch-title">System architecture</title>
@@ -201,22 +295,18 @@
                             </marker>
                         </defs>
 
-                        <!-- column labels -->
                         <text x="110" y="28" class="col">Moderators</text>
                         <text x="440" y="28" class="col">Cloud</text>
                         <text x="770" y="28" class="col">Classroom</text>
 
-                        <!-- web app -->
                         <rect x="20" y="60" width="180" height="84" rx="10" class="node"/>
                         <text x="110" y="94" class="title">React web app</text>
                         <text x="110" y="116" class="meta">TypeScript · Vite · dnd-kit</text>
 
-                        <!-- backend -->
                         <rect x="20" y="236" width="180" height="84" rx="10" class="node"/>
                         <text x="110" y="270" class="title">Express API</text>
                         <text x="110" y="292" class="meta">firebase-admin · token check</text>
 
-                        <!-- firebase group -->
                         <rect x="290" y="50" width="300" height="300" rx="14" class="group"/>
                         <text x="440" y="76" class="meta">Firebase</text>
                         <rect x="320" y="92" width="240" height="56" rx="8" class="node alt"/>
@@ -227,17 +317,14 @@
                         <text x="440" y="273" class="title">Cloud Storage</text>
                         <text x="440" y="326" class="meta">dev_content / app_content</text>
 
-                        <!-- tts -->
                         <rect x="20" y="340" width="180" height="34" rx="8" class="node ghost"/>
                         <text x="110" y="362" class="meta">ttsMP3 API</text>
 
-                        <!-- tablet -->
                         <rect x="680" y="150" width="180" height="110" rx="10" class="node"/>
                         <text x="770" y="186" class="title">Flutter tablet app</text>
                         <text x="770" y="208" class="meta">Hive local database</text>
                         <text x="770" y="228" class="meta">works offline</text>
 
-                        <!-- edges -->
                         <path d="M110,144 L110,236" class="edge" marker-end="url(#arrow)"/>
                         <text x="118" y="194" class="lbl" text-anchor="start">REST + ID token</text>
                         <path d="M200,90 L320,118" class="edge" marker-end="url(#arrow)"/>
@@ -256,6 +343,15 @@
                 <h3 class="sub">Engineering decisions</h3>
                 <div class="decisions">
                     <details open>
+                        <summary>Why Flutter, Android and Firebase</summary>
+                        <p>
+                            We compared React Native and Flutter. We chose Flutter because our advisor's future
+                            student teams use it, which makes the project easier to hand off, and because hot reload and
+                            built-in widgets fit a one-year timeline. DIFF EDUCATION chose Android because the devices are
+                            cheaper and easier to get in Mozambique. Firebase had a free tier and works well with Flutter.
+                        </p>
+                    </details>
+                    <details>
                         <summary>Moving media from Firebase Hosting to Firebase Storage</summary>
                         <p>
                             During senior design, images and audio were committed to the repo and served from
@@ -325,77 +421,154 @@
             </div>
         </section>
 
-        <!-- ============ TIMELINE ============ -->
-        <section id="timeline" class="wrap section">
-            <h2>Timeline</h2>
-            <ol class="timeline">
-                <li>
-                    <span class="when">May 2024 – Jun 2025</span>
-                    <h3>Senior design</h3>
-                    <p>A five-person team advised by Dr. Silvia Figueira worked with DIFF EDUCATION and SCU's Frugal Innovation Hub to design and build the offline-first Flutter app, its Firestore content model, and Node scripts that turn spreadsheets into content and generate audio. We wrote it up as our senior thesis, completed June 2025.</p>
-                </li>
-                <li>
-                    <span class="when">Fall 2025</span>
-                    <h3>Tablet feedback and planning the web app</h3>
-                    <p>We returned to the project in CSEN 493 to get it ready for testing in Mozambique. A DIFF EDUCATION partner tested an Android build, and we fixed the header and scrolling issues they found. While we waited on our point of contact, we planned the web app. We sketched wireframes, redrew the workflow and database schema, broke the work into four milestones (Learn → Quizzes → Design → Conversations), chose React and Express, and built the first working endpoint.</p>
-                </li>
-                <li>
-                    <span class="when">Winter – Spring 2026</span>
-                    <h3>Building the web app and preparing for field testing</h3>
-                    <p>We moved media to Cloud Storage (v1.1.0), remodeled Firestore with subcollections (v1.2.0), and added fractional ordering, Firebase Auth, browser and server uploads, and drag-and-drop. In February we demoed both apps in person to our DIFF EDUCATION point of contact, who connected us with the program's moderators. We separated development and production content (v1.2.2), translated the app's Information screen into Portuguese (v1.2.3), and got the app ready to install on tablets for in-person testing in Mozambique.</p>
-                </li>
-                <li>
-                    <span class="when">Next</span>
-                    <h3>Feedback and handoff</h3>
-                    <p>Early feedback from Mozambique was very positive. It also produced a list of requested content: the alphabet with letter sounds, everyday actions like eating meals or asking for water, and words for describing pain at a clinic. We tested generating matching illustrations with Gemini, and learned the prompts need care to be culturally accurate. The Firebase project and both repos are being handed to a future Frugal Innovation Hub team.</p>
-                </li>
-            </ol>
-        </section>
+        <!-- ============ FIELD TESTING ============ -->
+        <section id="field" class="wrap section">
+            <p class="eyebrow">Spring 2026</p>
+            <h2>In the field</h2>
+            <p class="section-lede">
+                The Frugal Innovation Hub planned a three-stage rollout. Teachers would test first, then a few mothers
+                the teachers picked, then everyone. In spring 2026 the app was installed on the school's tablets
+                in Mecúfi and tested there.
+            </p>
 
-        <!-- ============ MY ROLE ============ -->
-        <section id="role" class="band">
-            <div class="wrap section">
-                <h2>My role</h2>
-                <!-- TODO(Josh): confirm these bullets and add anything specific you owned during senior design. -->
-                <ul class="role-list">
-                    <li><strong>Mobile app.</strong> Wrote the largest share of commits to the Flutter app, including the Firestore-to-Hive sync, the Firebase Storage migration, the subcollection refactor, launcher icons, and dev/prod builds.</li>
-                    <li><strong>Web app.</strong> Co-designed the web app with Alex Lopes and wrote most of it: the Express API, Firebase Auth middleware, ttsMP3 audio pipeline, fractional ordering, and React pages with drag-and-drop.</li>
-                    <li><strong>Content tooling.</strong> Wrote Node scripts to convert spreadsheets to JSON, generate audio from text, and bulk-upload media to Storage.</li>
-                    <li><strong>Field readiness.</strong> Prepared and shipped Android builds for partner testing and turned their feedback into releases.</li>
-                </ul>
-                <div class="stats">
-                    <div><span class="num">305</span><span class="lbl">commits to the mobile app</span></div>
-                    <div><span class="num">66</span><span class="lbl">commits to the web app</span></div>
-                    <div><span class="num">7</span><span class="lbl">API route modules</span></div>
-                    <div><span class="num">v1.2.3</span><span class="lbl">latest tablet release</span></div>
+            <ol class="stages">
+                <li><span>1</span><strong>Teachers</strong>Teachers use the app and give feedback.</li>
+                <li><span>2</span><strong>Selected mothers</strong>Teachers choose a few outgoing mothers to try it first.</li>
+                <li><span>3</span><strong>Full release</strong>Every learning group starts using the app.</li>
+            </ol>
+
+            <div class="quotes">
+                <blockquote>
+                    <p>"The women understood right away."</p>
+                    <cite>Field-test notes, DIFF EDUCATION teacher in Mozambique</cite>
+                </blockquote>
+                <blockquote>
+                    <p>"They really appreciated the app, and it works really well… As you can see, the outcome is amazing."</p>
+                    <cite>DIFF EDUCATION, April 2026</cite>
+                </blockquote>
+                <blockquote>
+                    <p>"We will really create a huge difference in the community."</p>
+                    <cite>DIFF EDUCATION, April 2026</cite>
+                </blockquote>
+            </div>
+
+            <div class="two-col">
+                <div>
+                    <h3>What we heard</h3>
+                    <ul class="checklist">
+                        <li>Installing the APK went smoothly, and the app was "very easy to use".</li>
+                        <li>The interface was "very well-structured", and the teacher called the UI "very beautiful".</li>
+                        <li>The first boot was a little slow while the initial sync ran.</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>What's next</h3>
+                    <ul class="checklist">
+                        <li>The alphabet, with letter names and letter sounds.</li>
+                        <li>Introductions ("My name is…", "I'm from Mecúfi…") and basic needs such as asking for water or food.</li>
+                        <li>Describing pain at a clinic.</li>
+                        <li>New illustrations in the app's existing style. We tested generating them with AI and found prompts must be written carefully to stay culturally accurate.</li>
+                    </ul>
                 </div>
             </div>
         </section>
 
-        <!-- ============ PAPER ============ -->
-        <section id="paper" class="wrap section">
-            <h2>The paper</h2>
-            <div class="paper">
+        <!-- ============ TIMELINE ============ -->
+        <section id="timeline" class="band">
+            <div class="wrap section">
+                <h2>Timeline</h2>
+                <ol class="timeline">
+                    <li>
+                        <span class="when">May – Dec 2024</span>
+                        <h3>Discovery and design</h3>
+                        <p>We began meeting with DIFF EDUCATION and the Frugal Innovation Hub. We chose Flutter over React Native and MVVM over MVC, and Sara Wheeler designed the app in Figma. DIFF EDUCATION's doctor reviewed every vocabulary set and image. Post-election unrest and internet shutdowns in Mozambique (October–November) and Cyclone Chido (December) repeatedly cut off contact with our partners. This reinforced the decision to build offline-first.</p>
+                    </li>
+                    <li>
+                        <span class="when">Jan – May 2025</span>
+                        <h3>Building the app</h3>
+                        <p>We split the work and built for Android tablets in landscape. Gwen Patwardhan and I owned the database. We chose Hive for offline storage with Firestore for remote updates. Recorded demos tracked progress: Learn cards, audio, search, syncing, and the sync progress dialog. We finished with the thesis, a 35-minute final presentation and live demo, and the first release build in May.</p>
+                    </li>
+                    <li>
+                        <span class="when">Aug – Oct 2025</span>
+                        <h3>Back for a second year</h3>
+                        <p>Alex Lopes and I continued the project in CSEN 493. The Frugal Innovation Hub tested a build on its own Android tablet, which led to v1.0.1 with the logo header and a title that scrolls away. While our partners were unavailable, we started the web app so moderators wouldn't depend on developers.</p>
+                    </li>
+                    <li>
+                        <span class="when">Nov – Dec 2025</span>
+                        <h3>Planning and rebuilding the data layer</h3>
+                        <p>We chose React and Express. I built the backend endpoints, and Alex started the front-end templates. We moved media to Cloud Storage (v1.1.0) and remodeled Firestore with subcollections (v1.2.0).</p>
+                    </li>
+                    <li>
+                        <span class="when">Jan – Feb 2026</span>
+                        <h3>Demo and release candidate</h3>
+                        <p>Vocabulary editing in the web app was finished. On February 4 we demoed both apps in person to DIFF EDUCATION, including a live edit in the web app that appeared on the tablet after a sync. We added the launcher icon (v1.2.1), separated development and production content (v1.2.2), and shipped the Portuguese Information screen (v1.2.3).</p>
+                    </li>
+                    <li>
+                        <span class="when">Mar – Jun 2026</span>
+                        <h3>Field test and handoff</h3>
+                        <p>The app was installed on tablets at the school in Mecúfi and tested there. We turned the feedback into a list of new content. We documented the project to hand the Firebase project and both repositories to the next Frugal Innovation Hub team.</p>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- ============ MY ROLE ============ -->
+        <section id="role" class="wrap section">
+            <h2>My role</h2>
+            <div class="two-col">
                 <div>
-                    <p class="paper-title">Portuguese for Mozambican Mothers – A Language Empowerment App</p>
-                    <p class="muted">Computer Science and Engineering Senior Thesis 330 · Santa Clara University · 2025</p>
-                    <p>
-                        This project develops an educational application for non-literate mothers in rural
-                        Mozambique. The app teaches through pictures and sound for users with no experience
-                        reading or using technology, keeps its core learning features working offline where internet
-                        is limited, and is designed for group lessons led by a moderator, with no individual logins and
-                        immediate feedback on exercises.
-                    </p>
-                    <a class="btn primary" href="https://scholarcommons.scu.edu/cseng_senior/330">View on Scholar Commons</a>
+                    <h3>Senior design (2024–25)</h3>
+                    <ul class="role-list">
+                        <li>Co-owned database planning and setup with Gwen Patwardhan: chose Hive and Firestore and designed the content model.</li>
+                        <li>Built the Firestore-to-Hive sync service, the sync progress dialog, the no-internet screens, and much of the Learn screens.</li>
+                        <li>Wrote the Node content scripts: spreadsheet data into Firestore, batch text-to-speech generation, and media upload.</li>
+                        <li>Presented the technical approach and system architecture at our final presentation.</li>
+                    </ul>
                 </div>
-                <div class="cite">
-                    <p class="muted small">Recommended citation</p>
-                    <blockquote>
-                        Kindarara, Josh; Lopes, Alexandre; Patwardhan, Gwendolyn; Santos, Riana; and Wheeler, Sara,
-                        "Portuguese for Mozambican Mothers – A Language Empowerment App" (2025).
-                        <em>Computer Science and Engineering Senior Theses.</em> 330.
-                        <a href="https://scholarcommons.scu.edu/cseng_senior/330">https://scholarcommons.scu.edu/cseng_senior/330</a>
-                    </blockquote>
+                <div>
+                    <h3>CSEN 493 (2025–26)</h3>
+                    <ul class="role-list">
+                        <li>Built the web app's Express API, Firebase Auth middleware and ttsMP3 audio pipeline, and most of the React front end (40 of 42 front-end commits).</li>
+                        <li>Led the data-layer redesign: the move to Cloud Storage, Firestore subcollections, fractional ordering, and separate dev and production content.</li>
+                        <li>Built and delivered the tablet releases from v1.0.1 to v1.2.3 for partner and field testing.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="stats">
+                <div><span class="num">197</span><span class="lbl">of 305 commits to the mobile app</span></div>
+                <div><span class="num">63</span><span class="lbl">of 66 commits to the web app</span></div>
+                <div><span class="num">6</span><span class="lbl">tablet releases, Oct 2025 – Feb 2026</span></div>
+                <div><span class="num">7</span><span class="lbl">API route modules</span></div>
+            </div>
+        </section>
+
+        <!-- ============ PAPER ============ -->
+        <section id="paper" class="band">
+            <div class="wrap section">
+                <h2>The paper</h2>
+                <div class="paper">
+                    <div>
+                        <p class="paper-title">Portuguese for Mozambican Mothers – A Language Empowerment App</p>
+                        <p class="muted">Computer Science and Engineering Senior Thesis 330 · Santa Clara University · 2025</p>
+                        <p>
+                            The thesis covers the problem, related work, and the teaching approaches behind the app (the
+                            Direct Method, Community Language Learning, and the Communicative Approach). It also covers requirements and use cases, the
+                            UI and system design, testing, and the app's ethical, social and sustainability considerations.
+                        </p>
+                        <div class="cta">
+                            <a class="btn primary" href="https://scholarcommons.scu.edu/cseng_senior/330">View on Scholar Commons</a>
+                            <a class="btn" href="assets/docs/poster.pdf" target="_blank" rel="noopener">View the poster (PDF)</a>
+                        </div>
+                    </div>
+                    <div class="cite">
+                        <p class="muted small">Recommended citation</p>
+                        <blockquote>
+                            Kindarara, Josh; Lopes, Alexandre; Patwardhan, Gwendolyn; Santos, Riana; and Wheeler, Sara,
+                            "Portuguese for Mozambican Mothers – A Language Empowerment App" (2025).
+                            <em>Computer Science and Engineering Senior Theses.</em> 330.
+                            <a href="https://scholarcommons.scu.edu/cseng_senior/330">https://scholarcommons.scu.edu/cseng_senior/330</a>
+                        </blockquote>
+                    </div>
                 </div>
             </div>
         </section>
@@ -403,15 +576,22 @@
         <!-- ============ CREDITS ============ -->
         <section class="wrap section credits">
             <h2>Team &amp; acknowledgements</h2>
+            <ul class="team">
+                <li><strong>Sara Wheeler</strong>UI/UX design, Figma, image sets</li>
+                <li><strong>Gwendolyn Patwardhan</strong>Hive database and models, Info and sync page</li>
+                <li><strong>Riana Santos</strong>Learn and Practice pages, quizzes</li>
+                <li><strong>Alexandre Lopes</strong>Conversation content, home page and routing; co-built the web app</li>
+                <li><strong>Josh Kindarara</strong>Database, sync and content pipeline; web app backend</li>
+                <li><strong>Dr. Silvia Figueira</strong>Faculty advisor</li>
+            </ul>
             <p>
-                <strong>Senior design team:</strong> Josh Kindarara, Alexandre Lopes, Gwendolyn Patwardhan, Riana Santos and Sara Wheeler (who created the mobile app's visual design).
-                <strong>Advisor:</strong> Dr. Silvia Figueira.
-                <strong>2025–26 continuation:</strong> Josh Kindarara and Alexandre Lopes.
-            </p>
-            <p>
-                Thank you to <strong>DIFF EDUCATION</strong> and its moderators and families in Mecúfi, and to Santa Clara University's
+                Thank you to <strong>DIFF EDUCATION</strong>, its teachers, moderators and families in Mecúfi, and to Santa Clara University's
                 <strong>Frugal Innovation Hub</strong>.
             </p>
+            <figure class="wide">
+                <img src="assets/img/team-feb-2026.png" alt="Six people standing in a Frugal Innovation Hub lab beside a large screen showing the app's Information page, with project posters on the wall behind them." loading="lazy" width="1280" height="960">
+                <figcaption>February 2026: after demoing the mobile and web apps in person to DIFF EDUCATION at SCU.</figcaption>
+            </figure>
         </section>
     </main>
 
