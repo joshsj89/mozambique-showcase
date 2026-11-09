@@ -6,8 +6,6 @@ A static showcase page for **Portuguese for Mozambican Mothers – A Language Em
 
 ## Related
 
-- Mobile app (Flutter): [joshsj89/mozambique_app](https://github.com/joshsj89/mozambique_app)
-- Content management web app (React + Express): [joshsj89/mozambique-app-cms](https://github.com/joshsj89/mozambique-app-cms)
 - Senior thesis: [Scholar Commons #330](https://scholarcommons.scu.edu/cseng_senior/330)
 
 ## Structure
